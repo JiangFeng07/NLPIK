@@ -308,25 +308,5 @@ class BertCRF(object):
 
 
 if __name__ == '__main__':
-    # train_file = open('train.csv', 'w', encoding='utf-8')
-    # evaluate_file = open('evaluate.csv', 'w', encoding='utf-8')
-    # with open('sample.csv', 'r', encoding='utf-8') as f:
-    #     for line in f:
-    #         fields = line.strip().split('\t')
-    #         if len(fields) != 2:
-    #             continue
-    #         label, text = tuple(fields)
-    #         for sentence in cut_text(text, max_seq_length=128):
-    #             train_file.write('%s\t%s\n' % (label, sentence))
-    #             evaluate_file.write('%s\t%s\n' % (label, sentence))
-    # train_file.close()
-    # evaluate_file.close()
-
-    # np = NerProcessor()
-    # examples = np.get_train_examples('./sample.csv')
-    # vocab = load_vocab('/Users/jiangfeng/workspace_me/NLPIK/bert-chinese/chinese_L-12_H-768_A-12/vocab.txt')
-    # label_dicts = {'B-PER': 1, 'I-PER': 2, 'O': 3}
-    # features = convert_batch_example(examples, max_seq_length=128, vocab=vocab, label_dicts=label_dicts)
-
     bert_crf = BertCRF()
     bert_crf.train()
