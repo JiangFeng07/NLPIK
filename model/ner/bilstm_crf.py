@@ -3,14 +3,13 @@
 # @Time : 2022-03-14 11:42 
 # @Author : Leo
 
-import warnings
 import numpy as np
 import tensorflow as tf
 from tensorflow import nn
 from tensorflow.contrib.layers import xavier_initializer
 
-from bert.tokenization import load_vocab
-from ner.data_utils import process_batch_data, cut_text, texts_digit
+from model.bert import load_vocab
+from model.ner.data_utils import process_batch_data, cut_text, texts_digit
 
 
 class Bilstm_Crf(object):

@@ -7,10 +7,11 @@ import re
 import tensorflow as tf
 from tensorflow import nn
 
-from bert import modeling, tokenization
-from bert.optimization import AdamWeightDecayOptimizer
-from bert.run_classifier import DataProcessor
-from bert.tokenization import load_vocab
+from model.bert import tokenization
+from model.bert import modeling
+from model.bert import AdamWeightDecayOptimizer
+from model.bert import DataProcessor
+from model.bert import load_vocab
 
 tf.logging.set_verbosity(tf.logging.INFO)
 flags = tf.flags
