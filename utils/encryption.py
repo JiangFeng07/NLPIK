@@ -8,7 +8,7 @@
 import base64
 from Crypto.Cipher import AES
 
-AES_SECRET_KEY = 'aaa'  # 此处16|24|32个字符
+AES_SECRET_KEY = 'a' * 32  # 此处16|24|32个字符
 IV = "1234567890123456"
 
 # padding算法
