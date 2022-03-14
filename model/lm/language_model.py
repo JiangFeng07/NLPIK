@@ -7,7 +7,7 @@ import tensorflow as tf
 
 from model.lm import reader
 
-DATA_PATH = "/Users/jiangfeng/Downloads/simple-examples/data"
+DATA_PATH = "~/Downloads/simple-examples/data"
 HIDDEN_SIZE = 200
 NUM_LAYERS = 2
 VOCAB_SIZE = 10000
