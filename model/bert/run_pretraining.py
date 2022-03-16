@@ -242,7 +242,7 @@ def get_masked_lm_output(bert_config, input_tensor, output_weights, positions,
     """Get loss and log probs for the masked LM."""
     input_tensor = gather_indexes(input_tensor, positions)
 
-    with tf.variable_scope("cls/predictions"):
+    with tf.variable_scope("text_classification/predictions"):
         # We apply one more non-linear transformation before the output layer.
         # This matrix is not used after pre-training.
         with tf.variable_scope("transform"):
@@ -287,7 +287,7 @@ def get_next_sentence_output(bert_config, input_tensor, labels):
 
     # Simple binary classification. Note that 0 is "next sentence" and 1 is
     # "random sentence". This weight matrix is not used after pre-training.
-    with tf.variable_scope("cls/seq_relationship"):
+    with tf.variable_scope("text_classification/seq_relationship"):
         output_weights = tf.get_variable(
             "output_weights",
             shape=[2, bert_config.hidden_size],

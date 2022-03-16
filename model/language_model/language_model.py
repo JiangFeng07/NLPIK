@@ -5,7 +5,7 @@
 import numpy as np
 import tensorflow as tf
 
-from model.lm import reader
+from model.language_model import reader
 
 DATA_PATH = "~/Downloads/simple-examples/data"
 HIDDEN_SIZE = 200

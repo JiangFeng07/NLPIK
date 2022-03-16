@@ -566,11 +566,11 @@ def create_model(bert_config, is_training, input_ids, input_mask, segment_ids,
     hidden_size = final_hidden_shape[2]
 
     output_weights = tf.get_variable(
-        "cls/squad/output_weights", [2, hidden_size],
+        "text_classification/squad/output_weights", [2, hidden_size],
         initializer=tf.truncated_normal_initializer(stddev=0.02))
 
     output_bias = tf.get_variable(
-        "cls/squad/output_bias", [2], initializer=tf.zeros_initializer())
+        "text_classification/squad/output_bias", [2], initializer=tf.zeros_initializer())
 
     final_hidden_matrix = tf.reshape(final_hidden,
                                      [batch_size * seq_length, hidden_size])
