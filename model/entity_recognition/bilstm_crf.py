@@ -8,7 +8,7 @@ import tensorflow as tf
 from tensorflow import nn
 from tensorflow.contrib.layers import xavier_initializer
 
-from model.bert import load_vocab
+from model.bert.tokenization import load_vocab
 from model.entity_recognition.data_utils import process_batch_data, cut_text, texts_digit
 
 
@@ -78,10 +78,8 @@ class Bilstm_Crf(object):
 
     def embedding_layer(self):
         with tf.device('/cpu:0'), tf.name_scope('embedding'):
-            embedding = tf.get_variable(name='embedding', hape=[self.flags.vocab_size,
-                                                                self.flags.embedding_size],
-                                        dtype=tf.float32,
-                                        initializer=xavier_initializer())
+            embedding = tf.get_variable(name='embedding', shape=[self.flags.vocab_size, self.flags.embedding_size],
+                                        dtype=tf.float32, initializer=xavier_initializer())
 
             embed = tf.nn.embedding_lookup(embedding, self.input)
             return embed
