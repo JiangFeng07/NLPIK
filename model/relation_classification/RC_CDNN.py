@@ -5,10 +5,6 @@
 
 # Relation Classification via Convolutional Deep Neural Network 论文实现
 import tensorflow as tf
-import os
-from model.relation_classification.utils import map_label_to_id, WordEmbeddingLoader, process_batch_data
-
-# base_path = '../../data/SemEval'
 
 
 class CDNNModel(object):
