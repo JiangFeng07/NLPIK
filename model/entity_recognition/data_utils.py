@@ -74,7 +74,8 @@ def process_batch_data(texts, tag_dict, vocab, max_len=350):
                 continue
         return text_list, tag_list
 
-    if not texts or len(texts) == 0: return None
+    if not texts or len(texts) == 0:
+        return None
     text_data, tag_data = [], []
     for text in texts:
         fields = text.split('\t')

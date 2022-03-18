@@ -9,9 +9,10 @@ from tensorflow import nn
 
 from model.bert import tokenization
 from model.bert import modeling
-from model.bert import AdamWeightDecayOptimizer
-from model.bert import DataProcessor
-from model.bert import load_vocab
+# from model.bert import AdamWeightDecayOptimizer
+from model.bert.optimization import AdamWeightDecayOptimizer
+from model.bert.run_classifier import DataProcessor
+from model.bert.tokenization import load_vocab
 
 tf.logging.set_verbosity(tf.logging.INFO)
 flags = tf.flags
