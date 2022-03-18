@@ -5,7 +5,7 @@
 import os
 import tensorflow as tf
 
-from model.relation_classification.RC_CDNN import CDNNModel
+from model.relation_classification.cdnn import CDNNModel
 from model.relation_classification.utils import process_batch_data, WordEmbeddingLoader, map_label_to_id
 
 base_path = '../../data'
