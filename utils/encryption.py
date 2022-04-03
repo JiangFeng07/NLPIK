@@ -27,6 +27,7 @@ class AES_ENCRYPT(object):
         return base64.b64encode(ciphertext)
 
     # 解密函数
+    @staticmethod
     def decrypt(text):
         decode = base64.b64decode(text)
         cryptor = AES.new(AES_SECRET_KEY.encode("utf8"), AES.MODE_ECB, IV.encode("utf8"))
