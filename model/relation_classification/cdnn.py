@@ -150,7 +150,7 @@ def train():
         for line in f:
             evaluate_texts.append(line.strip())
 
-    eveluate_batch_num = 5
+    evaluate_batch_num = 5
     # model = CDNNModel(word_vec=word_vec, is_train=True)
 
     m_train, m_valid = build_train_valid_model()
@@ -201,8 +201,8 @@ def train():
                         evaluate_accuracy += _accuracy
                         evaluate_loss += _loss
 
-                    evaluate_accuracy, evaluate_loss = round((evaluate_accuracy / eveluate_batch_num), 2), round(
-                        (evaluate_loss / eveluate_batch_num), 2)
+                    evaluate_accuracy, evaluate_loss = round((evaluate_accuracy / evaluate_batch_num), 2), round(
+                        (evaluate_loss / evaluate_batch_num), 2)
                     if evaluate_accuracy > max_acc:
                         saver.save(sess=sess, save_path=model_path)
                         tf.summary.FileWriter(summary_path, graph=sess.graph)

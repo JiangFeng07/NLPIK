@@ -3,7 +3,6 @@
 # @Time : 2022-03-16 23:07 
 # @Author : Leo
 import os
-from collections import namedtuple
 
 import numpy as np
 import pandas as pd
@@ -39,10 +38,6 @@ class WordEmbeddingLoader(object):
         return word2id, word_vec
 
 
-# class SemEvalDataset(object):
-#     def __init__(self, train_path, test_path):
-#         self.train_path = train_path
-#         self.test_path = test_path
 def map_label_to_id(label_file):
     label2id = dict()
     with open(label_file, 'r', encoding='utf-8') as f:
@@ -138,26 +133,35 @@ def process_batch_data(sentences, label2id, word2id, max_len=128):
 
 
 if __name__ == '__main__':
-    wordEmbed = WordEmbeddingLoader(os.path.join(base_path, 'vector_50.txt'), word_dim=50)
-    word2id, word_vec = wordEmbed.load_embedding()
-    train_texts = pd.read_csv(os.path.join(base_path, 'train/train.txt'), sep='\t', header=None)
-    train_labels = pd.read_csv(os.path.join(base_path, 'train/train_result_full.txt'), sep='\t', header=None)
+    # wordEmbed = WordEmbeddingLoader(os.path.join(base_path, 'vector_50.txt'), word_dim=50)
+    # word2id, word_vec = wordEmbed.load_embedding()
+    # train_texts = pd.read_csv(os.path.join(base_path, 'train/train.txt'), sep='\t', header=None)
+    # train_labels = pd.read_csv(os.path.join(base_path, 'train/train_result_full.txt'), sep='\t', header=None)
+    #
+    # texts, pos1, pos2, labels, contexts = [], [], [], [], []
+    # pos_num = -1
+    # label2id = map_label_to_id(os.path.join(base_path, 'labels.csv'))
+    #
+    # sentences, tags = [], []
+    #
+    # with open(os.path.join(base_path, 'test_data.csv'), 'r', encoding='utf-8') as f:
+    #     for line in f:
+    #         sentences.append(line.strip())
+    # texts, pos1, pos2, labels, contexts = process_batch_data(sentences[:1], label2id)
+    #
+    # for i in range(len(texts)):
+    #     print(texts[i])
+    #     print(pos1[i])
+    #     print(pos2[i])
+    #     print(labels[i])
+    #     print(contexts[i])
+    #     print('\n')
 
-    texts, pos1, pos2, labels, contexts = [], [], [], [], []
-    pos_num = -1
-    label2id = map_label_to_id(os.path.join(base_path, 'labels.csv'))
+    import json
 
-    sentences, tags = [], []
-
-    with open(os.path.join(base_path, 'test_data.csv'), 'r', encoding='utf-8') as f:
-        for line in f:
-            sentences.append(line.strip())
-    texts, pos1, pos2, labels, contexts = process_batch_data(sentences[:1], label2id)
-
-    for i in range(len(texts)):
-        print(texts[i])
-        print(pos1[i])
-        print(pos2[i])
-        print(labels[i])
-        print(contexts[i])
-        print('\n')
+    print(json.dumps({'a': False}, ensure_ascii=False))
+    pre_doc_list = sorted(
+        [{'id': 1, 'time': '2022-03-02'}, {'id': 3, 'time': '2022-03-22'}, {'id': 8, 'time': '2021-03-02'}],
+        key=lambda row: pd.to_datetime(row['time']))
+    pre_doc_list.reverse()
+    print(pre_doc_list)
